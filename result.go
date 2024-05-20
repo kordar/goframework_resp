@@ -17,6 +17,10 @@ var resultCall = func(c interface{}, httpStatus int, code int, message string, d
 	*/
 }
 
-func ReplaceResultCall(f func(c interface{}, httpStatus int, code int, message string, data interface{}, count int64)) {
+func RegResultCallFunc(f func(c interface{}, httpStatus int, code int, message string, data interface{}, count int64)) {
 	resultCall = f
+}
+
+func GetResultCallFunc() func(c interface{}, httpStatus int, code int, message string, data interface{}, count int64) {
+	return resultCall
 }
